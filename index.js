@@ -178,7 +178,7 @@ function getReviewByRating(array, rating) {
   }
   return avgRatings;
 }
-console.log(getReviewByRating(reviews, 4))
+//console.log(getReviewByRating(reviews, 4))
 
   
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪💪💪💪💪   
@@ -194,9 +194,17 @@ Use the getLongReviews function below to do the following:
   ]
 */
 
-function getLongReviews(/* code here */) {
-    /* code here */
+function getLongReviews(array) {
+  let fifteenOrLess = []
+  for (let i = 0;i < array.length; i++) {
+    let wordCount = array[i].feedback.split(' ').length;
+    if (wordCount > 15) {
+      fifteenOrLess.push(array[i]);
+    }
   }
+  return fifteenOrLess;
+  }
+  console.log(getLongReviews(reviews));
   
 
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 3: 💪💪💪💪💪💪💪💪💪💪 
@@ -217,11 +225,17 @@ Use the carMaker function below to do the following:
 */
 
 
-function carMaker(/* code here */) {
-    /* code here */
+function carMaker(odometer) {
+    const car1 = {
+      odometer,
+      drive(distance) {
+        return this.odometer = distance + this.odometer;
+      }
+    }
+    return car1;
     
 }
-
+console.log(carMaker(50).drive(100))
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
 function foo(){
